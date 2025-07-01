@@ -92,6 +92,7 @@ const Chatbot = () => {
         role: "model",
         parts: [{ text: response.data.data }],
       };
+      console.log(response);
       dispatch(setCode(JSON.parse(response.data.data)));
       updatedArray = [...updatedArray, modelMessage];
       dispatch(push(modelMessage));
