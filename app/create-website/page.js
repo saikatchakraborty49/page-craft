@@ -5,7 +5,7 @@ import Sidebar from '@/components/create-website/Sidebar/Sidebar'
 // import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
-const page = () => {
+const CreateWebsite = () => {
   const sidebar=useSelector((state)=>state.sidebar.value)
   console.log(sidebar);
 
@@ -27,4 +27,4 @@ const page = () => {
   )
 }
 
-export default page
+export default CreateWebsite
