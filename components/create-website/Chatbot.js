@@ -78,7 +78,7 @@ const Chatbot = () => {
     setGenerating(true);
     reset();
     try {
-      console.log(description);
+      console.log(data);
       const userMessage = {
         role: "user",
         parts: [{ text: data.description }],
