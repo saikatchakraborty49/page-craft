@@ -73,11 +73,12 @@ const Chatbot = () => {
   };
 
   async function onSubmit(data) {
-    if (generating || data.description === "") return;
-
-    setGenerating(true);
-    reset();
     try {
+      if (generating || data.description === "") return;
+      
+      setGenerating(true);
+      reset();
+    
       console.log(data);
       const userMessage = {
         role: "user",
