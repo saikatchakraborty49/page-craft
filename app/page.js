@@ -1,103 +1,106 @@
-import Image from "next/image";
+// //set up the form page for chatting--some tweaks in chatbot.js --->DONE
+// //fetching the codes from LLM  --->DONE
+// //in front end remove all occurences of negi bot 
+// //code setup
+// // styling of code page
+// //preview setup
+// // chat bot me submit button
+// // code preview icons 
 
-export default function Home() {
+// import Navbar from "@/components/create-website/Navbar";
+// import { apiConnector } from "@/services/apiConnector";
+// import Image from "next/image";
+// import Link from "next/link";
+
+// export default function Home() {
+   
+//   return (
+//     <div className="w-screen z-30">
+//       <div className="h-5/6 p-2 flex flex-col justify-center items-center">
+//         <p className="text-3xl font-bold text-white">Welcome To The </p>
+//         <p className="text-gradient text-5xl font-bold mt-1">PageCraft</p>
+//         <p className="text-2xl mt-4">An AI-powered website builder</p>
+//         <p className="text-2xl mt-2">
+//          that generates a complete website from your text or voice input.
+//         </p>
+//         <Link href={"/create-website"}>
+//         <div className="mt-8 text-2xl scale-125 hover:scale-150 hover:cursor-pointer">
+//           <button type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+//               Create Your Website
+//           </button>
+//         </div>
+//         </Link>
+//       </div>
+
+//     </div>
+//   );
+// }
+
+"use client";
+import React from "react";
+import Link from "next/link";
+
+const Home = () => {
+  const features=
+  [
+    {
+      title: "AI-Powered Code",
+      desc: "Let our AI generate clean and responsive websites from your input.",
+      icon: "🤖",
+    },
+    {
+      title: "Live Preview",
+      desc: "See changes in real-time with our dynamic preview feature.",
+      icon: "👁️",
+    },
+    {
+      title: "Voice Input",
+      desc: "Don’t want to type? Just speak your design idea and we’ll build it.",
+      icon: "🎤",
+    },
+  ]
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="z-30 w-screen min-h-screen text-white px-6 py-16">
+      {/* Hero Section */}
+      <div className="max-w-6xl mx-auto flex flex-col items-center justify-center text-center gap-6">
+        <h1 className="text-5xl md:text-6xl font-bold text-gradient">
+          Welcome to PageCraft
+        </h1>
+        <p className="text-lg md:text-xl text-gray-300 max-w-3xl">
+          Transform your ideas into fully functional websites using the power of
+          AI. Generate HTML, CSS, and JavaScript with voice or text prompts.
+        </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="flex gap-4 mt-6">
+          <Link href="/create-website">
+            <button className=" px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-lg transition">
+              Start Creating
+            </button>
+          </Link>
+          <Link href="/services">
+            <button className="px-6 py-3 border border-gray-400 hover:bg-gray-800 text-white rounded-md text-lg transition">
+              Explore Services
+            </button>
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      {/* Features Section */}
+      <div className="max-w-6xl mx-auto mt-24 flex flex-wrap justify-center gap-6">
+    {features.map((item, i) => (
+    <div
+      key={i}
+      className="bg-gray-800 w-[90%] sm:w-[45%] lg:w-[30%] p-6 rounded-xl shadow-md hover:scale-105 transition"
+    >
+      <div className="text-4xl mb-3">{item.icon}</div>
+      <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+      <p className="text-gray-300 text-sm">{item.desc}</p>
+    </div>
+  ))}
+</div>
+
     </div>
   );
-}
+};
+
+export default Home;
