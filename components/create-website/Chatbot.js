@@ -97,6 +97,7 @@ const Chatbot = () => {
       dispatch(push(modelMessage));
       dispatch(setSidebar(true));
     } catch (error) {
+      console.log(error);
       toast.error("Unexpected error occured")
     }
     
