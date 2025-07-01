@@ -73,10 +73,11 @@ const Chatbot = () => {
   };
 
   async function onSubmit(data) {
+    setGenerating(true);
     try {
       if (generating || data.description === "") return;
+
       
-      setGenerating(true);
       reset();
     
       console.log(data);
