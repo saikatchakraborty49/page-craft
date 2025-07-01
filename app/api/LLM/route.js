@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
+import "dotenv"
+import { GoogleGenAI } from "@google/genai";
 
-// import { GoogleGenAI } from "@google/genai";
-const {GoogleGenAI}=require("@google/genai")
+// const {GoogleGenAI}=require("@google/genai")
 require("dotenv").config();
 
 const GEMINI_API_KEY=process.env.GEMINI_API_KEY;
+// console.log(GEMINI_API_KEY);
 
-const ai = new GoogleGenAI({ apiKey: "AIzaSyDP-CPmLWkgRvjcLNZfXVbhi6J5VfU5Tcc" });
+const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
 export async function POST(request){
     try{
@@ -59,7 +61,7 @@ Any irrelevant questions you will little rudely refuse to ansewr.
   });
   // console.log(response.text);
   const data=response.text;
-  console.log(data);
+  // console.log(data);
   return NextResponse.json({
     success:true,
     data,

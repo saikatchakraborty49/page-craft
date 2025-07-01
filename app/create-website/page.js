@@ -19,7 +19,7 @@ const page = () => {
   // }, [])
   // const {showSideBar,setShowSideBar}=useState(false)
   return (
-    <div className='w-screen h-[87vh] flex flex-col lg:flex-row'>
+    <div className='w-screen h-auto lg:h-[87vh] flex flex-col lg:flex-row'>
     {/* <div className='w-screen flex flex-col lg:flex-row'> */}
       <Chatbot/>
       <Sidebar/>

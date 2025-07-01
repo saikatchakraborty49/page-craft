@@ -99,7 +99,7 @@ const Chatbot = () => {
 
   return (
     <div
-      className={`relative h-full p-4 ${
+      className={`relative h-[87vh] p-4 ${
         sidebar ?  "w-screen lg:w-[30vw]"  : "w-screen"
       }`}
     >
