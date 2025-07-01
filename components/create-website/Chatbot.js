@@ -92,7 +92,7 @@ const Chatbot = () => {
         role: "model",
         parts: [{ text: response.data.data }],
       };
-      console.log(response);
+      console.log(response.data);
       dispatch(setCode(JSON.parse(response.data.data)));
       updatedArray = [...updatedArray, modelMessage];
       dispatch(push(modelMessage));
