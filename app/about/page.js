@@ -7,7 +7,7 @@ const About = () => {
       <h1 className="text-4xl font-bold mb-6">About PageCraft</h1>
       <p className="max-w-3xl text-lg text-center leading-7 text-gray-300">
         <strong>PageCraft</strong> is an AI-powered website generator designed to turn your ideas into fully functional web pages in seconds.
-        Whether you're a developer, designer, or someone without any coding knowledge, PageCraft helps you effortlessly create HTML, CSS, and JavaScript code with just a simple prompt.
+        Whether you&apos;re a developer, designer, or someone without any coding knowledge, PageCraft helps you effortlessly create HTML, CSS, and JavaScript code with just a simple prompt.
       </p>
 
       <div className="mt-12 max-w-3xl text-left space-y-6">
