@@ -8,6 +8,7 @@ import { apiConnector } from "@/services/apiConnector";
 import { setCode } from "@/lib/features/code/codeSlice";
 import { setSidebar } from "@/lib/features/sidebar/sidebarSlice";
 import { IoIosSend } from "react-icons/io";
+import toast from "react-hot-toast";
 
 const Chatbot = () => {
   const {
@@ -76,24 +77,29 @@ const Chatbot = () => {
 
     setGenerating(true);
     reset();
-    const userMessage = {
-      role: "user",
-      parts: [{ text: data.description }],
-    };
-    let updatedArray = [...array, userMessage];
-    dispatch(push(userMessage));
-
-    const response = await apiConnector("POST", "api/LLM", {
+    try {
+      const userMessage = {
+        role: "user",
+        parts: [{ text: data.description }],
+      };
+      let updatedArray = [...array, userMessage];
+      dispatch(push(userMessage));
+    
+      const response = await apiConnector("POST", "api/LLM", {
       history: updatedArray,
-    });
-    const modelMessage = {
-      role: "model",
-      parts: [{ text: response.data.data }],
-    };
-    dispatch(setCode(JSON.parse(response.data.data)));
-    updatedArray = [...updatedArray, modelMessage];
-    dispatch(push(modelMessage));
-    dispatch(setSidebar(true));
+      });
+      const modelMessage = {
+        role: "model",
+        parts: [{ text: response.data.data }],
+      };
+      dispatch(setCode(JSON.parse(response.data.data)));
+      updatedArray = [...updatedArray, modelMessage];
+      dispatch(push(modelMessage));
+      dispatch(setSidebar(true));
+    } catch (error) {
+      toast.error("Unexpected error occured")
+    }
+    
     setGenerating(false);
   }
 
