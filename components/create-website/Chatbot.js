@@ -80,7 +80,7 @@ const Chatbot = () => {
       
       reset();
     
-      console.log(data);
+      // console.log(data);
       const userMessage = {
         role: "user",
         parts: [{ text: data.description }],
@@ -91,17 +91,18 @@ const Chatbot = () => {
       const response = await apiConnector("POST", "api/LLM", {
       history: updatedArray,
       });
+      // console.log(response,'response')
       const modelMessage = {
         role: "model",
         parts: [{ text: response.data.data }],
       };
-      console.log(response.data);
+      // console.log(response.data);
       dispatch(setCode(JSON.parse(response.data.data)));
       updatedArray = [...updatedArray, modelMessage];
       dispatch(push(modelMessage));
       dispatch(setSidebar(true));
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Unexpected error occured")
     }
     

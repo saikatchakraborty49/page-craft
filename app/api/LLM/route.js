@@ -44,6 +44,7 @@ Rules:
 - ❌ Do not escape quotes or use \\n for new lines inside code blocks.
 - ✅ All code must be formatted with real line breaks.
 - ✅ Return pure JSON only, nothing else.
+- strictly for images use urls available in internet.
 
 Here is an example of correct format:
 
