@@ -77,9 +77,8 @@ const Chatbot = () => {
     try {
       if (generating || data.description === "") return;
 
-      
       reset();
-    
+
       // console.log(data);
       const userMessage = {
         role: "user",
@@ -103,29 +102,30 @@ const Chatbot = () => {
       dispatch(setSidebar(true));
     } catch (error) {
       // console.log(error);
-      toast.error("Unexpected error occured")
+      toast.error("Unexpected error occured");
     }
-    
+
     setGenerating(false);
   }
 
   return (
     <div
       className={`relative h-[87vh] p-4 ${
-        sidebar ?  "w-screen lg:w-[30vw]"  : "w-screen"
+        sidebar ? "w-screen lg:w-[30vw]" : "w-screen"
       }`}
     >
       {array.length === 0 ? (
         <div className="h-5/6 p-2 flex flex-col justify-center items-center">
           <div className="max-w-6xl mx-auto flex flex-col items-center justify-center text-center gap-6">
-        <h1 className="text-5xl md:text-6xl font-bold text-gradient">
-          Welcome to PageCraft
-        </h1>
-        <p className="text-lg md:text-xl text-gray-300 max-w-3xl">
-          Transform your ideas into fully functional websites using the power of
-          AI. Generate HTML, CSS, and JavaScript with voice or text prompts.
-        </p>
-        </div>
+            <h1 className="text-5xl md:text-6xl font-bold text-gradient">
+              Welcome to PageCraft
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl">
+              Transform your ideas into fully functional websites using the
+              power of AI. Generate HTML, CSS, and JavaScript with voice or text
+              prompts.
+            </p>
+          </div>
         </div>
       ) : (
         <div className="h-5/6 overflow-y-auto p-4 custom-scrollbar">
@@ -136,10 +136,12 @@ const Chatbot = () => {
             <MessageComponent key={i} message={message} />
           ))}
           {/*  */}
-          
-          <div className={`${generating?'block':'hidden'} flex justify-center items-center mt-2 bg-gray-800/75 rounded-md w-[90px] h-[60px] `}>
-          <div className="loader"></div>
-          {/* <div class="flex gap-2">
+
+          <div
+            className={`${generating ? "block" : "hidden"} flex justify-center items-center mt-2 bg-gray-800/75 rounded-md w-[90px] h-[60px] `}
+          >
+            <div className="loader"></div>
+            {/* <div class="flex gap-2">
               <div class="w-3 h-3 rounded-full animate-bounce [animation-delay:-0.3s]' bg-white"></div>
               <div class="w-3 h-3 rounded-full animate-bounce [animation-delay:-0.15s] bg-white"></div>
               <div class="w-3 h-3 rounded-full animate-bounce bg-white"></div>
@@ -148,7 +150,7 @@ const Chatbot = () => {
           <div ref={bottomRef} />
         </div>
       )}
-      
+
       <div className="h-1/6 w-full flex justify-center items-center">
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -171,7 +173,7 @@ const Chatbot = () => {
             //     toggleRecording
             //   // }
             // }}
-            className={`${generating?'hover:scale-100 cursor-default':'hover:scale-105 cursor-pointer'} p-2 rounded-md text-xl text-white ${
+            className={`${generating ? "hover:scale-100 cursor-default" : "hover:scale-105 cursor-pointer"} p-2 rounded-md text-xl text-white ${
               recording ? "bg-red-600" : "bg-gray-800/75"
             }`}
             title={recording ? "Stop Recording" : "Start Voice Input"}
